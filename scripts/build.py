@@ -307,6 +307,8 @@ def mezclar(doc_actual, fresh, args):
         previos[clave] = p
         orden_previo.append(clave)
 
+    default_cuatrimestre = str((doc_actual or {}).get("cuatrimestre") or "2026 1C")
+
     proyectos = []
     alumnos_cambiados = []
     for fp in fresh:
@@ -314,7 +316,7 @@ def mezclar(doc_actual, fresh, args):
         extras = {
             k: v
             for k, v in (previo or {}).items()
-            if k not in {"repo", "titulo", "descripcion", "tags", "alumnos"}
+            if k not in {"repo", "titulo", "descripcion", "tags", "alumnos", "cuatrimestre"}
         }
 
         # Dueño de cada campo: si la clave existe en el YAML (aunque esté vacía)
@@ -323,6 +325,9 @@ def mezclar(doc_actual, fresh, args):
         titulo, falta_titulo = campo_manual(previo, "titulo")
         descripcion, falta_desc = campo_manual(previo, "descripcion")
         tags, falta_tags = campo_manual(previo, "tags")
+        cuatrimestre, _ = campo_manual(previo, "cuatrimestre")
+        if cuatrimestre is None:
+            cuatrimestre = default_cuatrimestre
 
         seed = {}
         if (falta_titulo or falta_desc or falta_tags) and not args.no_github:
@@ -338,6 +343,7 @@ def mezclar(doc_actual, fresh, args):
         entry = {
             "repo": fp["repo"],
             "titulo": titulo,
+            "cuatrimestre": cuatrimestre,
             "descripcion": descripcion,
             "tags": tags,
             "alumnos": fp["alumnos"],
@@ -367,9 +373,8 @@ def mezclar(doc_actual, fresh, args):
     }
     doc = {
         "materia": (doc_actual or {}).get("materia") or "TIMMD",
-        "cuatrimestre": (doc_actual or {}).get("cuatrimestre") or "2026 1C",
+        "cuatrimestre": default_cuatrimestre,
         "proyectos": proyectos,
-        "pendientes": [],  # se completa en cmd_dataset con los del cruce de excels
         **extras,
     }
     return doc, alumnos_cambiados, huerfanos
@@ -379,12 +384,12 @@ def escribir_yaml(doc):
     YAML_PATH.parent.mkdir(parents=True, exist_ok=True)
     encabezado = (
         "# Dataset de entregables — fuente de verdad del README.\n"
-        "# Editar a mano: titulo, descripcion, tags y notas de cada proyecto.\n"
+        "# Editar a mano: titulo, descripcion, tags, cuatrimestre y notas de cada proyecto.\n"
         "# Regenerar el README con: uv run scripts/build.py readme\n"
         "# Reglas de 'dataset': alumnos se regenera desde los excels;\n"
         "#   titulo/descripcion/tags son de edición manual y nunca se pisan\n"
         "#   (borrar la línea para que el script los vuelva a sembrar desde GitHub).\n"
-        "# mostrar_pendientes: false oculta la sección 'Sin entrega registrada' del README.\n"
+        "# cuatrimestre: en proyectos nuevos se siembra del default (nivel superior).\n"
     )
     texto = encabezado + yaml.safe_dump(doc, sort_keys=False, allow_unicode=True, width=110)
     YAML_PATH.write_text(texto, encoding="utf-8")
@@ -396,7 +401,6 @@ def cmd_dataset(args):
     mails_map, duplicados = leer_mails()
     fresh, pendientes, sin_formulario = construir_fresh(grupos, mails_map)
     doc, alumnos_cambiados, huerfanos = mezclar(doc_actual, fresh, args)
-    doc["pendientes"] = pendientes
 
     total_alumnos = sum(len(p["alumnos"]) for p in doc["proyectos"])
     con_mail = sum(1 for p in doc["proyectos"] for a in p["alumnos"] if a.get("mail"))
@@ -429,7 +433,6 @@ def render_readme(doc):
     materia = str(doc.get("materia") or "TIMMD").strip()
     cuatrimestre = str(doc.get("cuatrimestre") or "").strip()
     proyectos = doc.get("proyectos") or []
-    pendientes = doc.get("pendientes") or []
 
     lineas = [f"# Entregables — {materia}", ""]
 
@@ -444,8 +447,8 @@ def render_readme(doc):
     lineas += [f"**{len(proyectos)} proyectos** · {total_alumnos} integrantes", ""]
 
     lineas += [
-        "| Proyecto | Descripción | Alumnos | Contacto | Repositorio | Tags |",
-        "|:---------|:------------|:--------|:---------|:------------|:-----|",
+        "| Proyecto | Cuatrimestre | Descripción | Alumnos | Contacto | Repositorio | Tags |",
+        "|:---------|:-------------|:------------|:--------|:---------|:------------|:-----|",
     ]
     for p in proyectos:
         repo = str(p.get("repo") or "").strip()
@@ -464,8 +467,9 @@ def render_readme(doc):
         celda_tags = " ".join(f"`{t}`" for t in tags)
 
         lineas.append(
-            "| {} | {} | {} | {} | {} | {} |".format(
+            "| {} | {} | {} | {} | {} | {} | {} |".format(
                 f"**{esc(p.get('titulo'))}**",
+                esc(p.get("cuatrimestre")),
                 esc(p.get("descripcion")),
                 esc(celda_alumnos),
                 esc(celda_contacto),
@@ -473,24 +477,6 @@ def render_readme(doc):
                 esc(celda_tags),
             )
         )
-
-    if pendientes and doc.get("mostrar_pendientes", True):
-        lineas += [
-            "",
-            "## Sin entrega registrada",
-            "",
-            "Completaron el formulario pero no figuran con repositorio en la planilla.",
-            "",
-            "| Alumno | Mail | Padrón |",
-            "|:-------|:-----|-------:|",
-        ]
-        for a in pendientes:
-            mail = str(a.get("mail") or "").strip()
-            celda_mail = f"[{mail}](mailto:{mail})" if mail else "—"
-            padron = a.get("padron")
-            lineas.append(
-                f"| {esc(a.get('nombre'))} | {esc(celda_mail)} | {padron if padron is not None else '—'} |"
-            )
 
     lineas += [
         "",
