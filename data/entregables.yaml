@@ -22,9 +22,7 @@ proyectos:
 - repo: https://github.com/seregrun-ops/tp-con-sorpreas
   titulo: 'StreamAI: Recomendador de Contenido de Streaming'
   cuatrimestre: 2026 1C
-  descripcion: StreamAI es una aplicación web desarrollada con el objetivo de analizar tendencias de contenido audiovisual
-    en distintas plataformas de streaming y brindar recomendaciones personalizadas de películas y series mediante
-    técnicas de análisis de datos y procesamiento de texto.
+  descripcion: Recomendador de películas y series a partir de tendencias de plataformas de streaming.
   tags:
   - visualizations
   - ai agent
@@ -42,7 +40,7 @@ proyectos:
 - repo: https://github.com/irecalde-ctrl/world-cup-storyteller-2018
   titulo: ⚽ World Cup Storyteller 2018
   cuatrimestre: 2026 1C
-  descripcion: Interactive data storytelling of the 2018 World Cup knockout stage through Twitter.
+  descripcion: Data storytelling interactivo del Mundial 2018 a partir de Twitter.
   tags:
   - visualizations
   alumnos:
@@ -58,7 +56,7 @@ proyectos:
 - repo: https://github.com/mmormandi-beep/Modelo-de-predicci-n-tiendas-online
   titulo: Modelo de predicción de tiendas online
   cuatrimestre: 2026 1C
-  descripcion: Material útil para el proyecto del modelo de predicción de compras aplicado a las e-commerce
+  descripcion: Predicción de compras en e-commerce con machine learning.
   tags:
   - machine-learning
   alumnos:
@@ -71,8 +69,7 @@ proyectos:
 - repo: https://github.com/mantonini-fiuba/TIMMD---Mas-alla-del-resultado
   titulo: Más allá del resultado
   cuatrimestre: 2026 1C
-  descripcion: 🎯 Análisis de partidos de fútbol con datos StatsBomb — mapas emocionales, estilos de juego, modelos
-    xG y simulaciones contrafácticas. FIUBA · TIMMD · 2026.
+  descripcion: Análisis de partidos de fútbol con datos StatsBomb — xG, estilos de juego y simulaciones.
   tags:
   - visualizations
   alumnos:
@@ -85,7 +82,7 @@ proyectos:
 - repo: https://github.com/mateoboerr/seminario_lunes
   titulo: 'trust-sources: detección de fuentes periodísticas con LLMs'
   cuatrimestre: 2026 1C
-  descripcion: Proyecto del seminario, sobre trust-monitor.
+  descripcion: Detección de fuentes periodísticas confiables con LLMs.
   tags:
   - trust
   alumnos:
@@ -98,7 +95,7 @@ proyectos:
 - repo: https://github.com/berenice0107/ingenia-chatbot
   titulo: IngenIA · Asistente Académico FIUBA
   cuatrimestre: 2026 1C
-  descripcion: Proyecto academico chatbot consultas administrativas
+  descripcion: Chatbot para consultas administrativas de FIUBA.
   tags:
   - fiuba
   alumnos:
@@ -114,8 +111,7 @@ proyectos:
 - repo: https://github.com/JuaniBaserga/fiuba-local-assistant
   titulo: FIUBA Assistant
   cuatrimestre: 2026 1C
-  descripcion: Asistente local para estudiar con apuntes propios. Indexa materiales por materia, recupera fragmentos
-    relevantes y responde preguntas con fuentes visibles.
+  descripcion: Asistente local RAG que responde preguntas sobre tus apuntes, con fuentes visibles.
   tags:
   - fiuba
   alumnos:
@@ -125,8 +121,7 @@ proyectos:
 - repo: https://github.com/martinacaffoz/cambio-de-curso-fiuba-v2
   titulo: Cambio de Curso — FIUBA
   cuatrimestre: 2026 1C
-  descripcion: Herramienta web para que estudiantes de la Facultad de Ingeniería (UBA) encuentren compañeros con
-    quienes intercambiar comisiones en una misma materia.
+  descripcion: Web para coordinar cambios de comisión entre estudiantes de FIUBA.
   tags:
   - fiuba
   alumnos:
@@ -136,7 +131,7 @@ proyectos:
 - repo: https://github.com/fadb98-netizen/nexo-ia
   titulo: Nexo IA
   cuatrimestre: 2026 1C
-  descripcion: Asistente de analisis comercial con IA (Next.js + FastAPI + OpenAI) - trabajo final de Ingenieria
+  descripcion: Asistente de análisis comercial con IA (Next.js + FastAPI + OpenAI).
   tags:
   - machine-learning
   alumnos:

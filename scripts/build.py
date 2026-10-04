@@ -449,8 +449,8 @@ def render_readme(doc):
     lineas += [f"**{len(proyectos)} proyectos** · {total_alumnos} integrantes", ""]
 
     lineas += [
-        "| Proyecto | Cuatrimestre | Descripción | Alumnos | Contacto | Repositorio | Tags |",
-        "|:---------|:-------------|:------------|:--------|:---------|:------------|:-----|",
+        "| Proyecto | Tags | Descripción | Alumnos | Contacto | Repositorio |",
+        "|:---------|:-----|:------------|:--------|:---------|:------------|",
     ]
     for p in proyectos:
         repo = str(p.get("repo") or "").strip()
@@ -469,18 +469,19 @@ def render_readme(doc):
             contactos.append(f"[{mail}](mailto:{mail})" if mail else "—")
         celda_contacto = "<br>".join(contactos)
 
-        tags = p.get("tags") or []
-        celda_tags = " ".join(f"`{t}`" for t in tags)
+        # Tags de la fila: primero el período (año + cuatrimestre), luego los temáticos
+        cuatrimestre = str(p.get("cuatrimestre") or "").strip()
+        etiquetas = [cuatrimestre] + [str(t) for t in (p.get("tags") or [])]
+        celda_tags = " ".join(f"`{t}`" for t in etiquetas if t)
 
         lineas.append(
-            "| {} | {} | {} | {} | {} | {} | {} |".format(
+            "| {} | {} | {} | {} | {} | {} |".format(
                 f"**{esc(p.get('titulo'))}**",
-                esc(p.get("cuatrimestre")),
+                esc(celda_tags),
                 esc(p.get("descripcion")),
                 esc(celda_alumnos),
                 esc(celda_contacto),
                 esc(celda_repo),
-                esc(celda_tags),
             )
         )
 
