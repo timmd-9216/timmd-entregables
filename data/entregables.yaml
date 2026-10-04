@@ -2,7 +2,8 @@
 # Editar a mano: titulo, descripcion, tags y notas de cada proyecto.
 # Regenerar el README con: uv run scripts/build.py readme
 # Reglas de 'dataset': alumnos se regenera desde los excels;
-#                      titulo/descripcion/tags solo se completan si están vacíos.
+#   titulo/descripcion/tags son de edición manual y nunca se pisan
+#   (borrar la línea para que el script los vuelva a sembrar desde GitHub).
 # mostrar_pendientes: false oculta la sección 'Sin entrega registrada' del README.
 materia: TIMMD
 cuatrimestre: 2026 1C
@@ -12,8 +13,7 @@ proyectos:
   descripcion: StreamAI es una aplicación web desarrollada con el objetivo de analizar tendencias de contenido audiovisual
     en distintas plataformas de streaming y brindar recomendaciones personalizadas de películas y series mediante
     técnicas de análisis de datos y procesamiento de texto.
-  tags:
-  - jupyter notebook
+  tags: []
   alumnos:
   - nombre: Serena Grünbaum
     mail: sgrunbaum@fi.uba.ar
@@ -28,13 +28,7 @@ proyectos:
   titulo: ⚽ World Cup Storyteller 2018
   descripcion: Interactive data storytelling of the 2018 World Cup knockout stage through Twitter.
   tags:
-  - data-storytelling
-  - data-visualization
-  - nlp
-  - python
-  - streamlit
-  - twitter-analysis
-  - world-cup
+  - visualizations
   alumnos:
   - nombre: Imanol Recalde
     mail: irecalde@fi.uba.ar
@@ -48,8 +42,7 @@ proyectos:
 - repo: https://github.com/mmormandi-beep/Modelo-de-predicci-n-tiendas-online
   titulo: Modelo de predicción de tiendas online
   descripcion: Material útil para el proyecto del modelo de predicción de compras aplicado a las e-commerce
-  tags:
-  - jupyter notebook
+  tags: []
   alumnos:
   - nombre: Magdalena Mormandi
     mail: mmormandi@fi.uba.ar
@@ -62,7 +55,7 @@ proyectos:
   descripcion: 🎯 Análisis de partidos de fútbol con datos StatsBomb — mapas emocionales, estilos de juego, modelos
     xG y simulaciones contrafácticas. FIUBA · TIMMD · 2026.
   tags:
-  - jupyter notebook
+  - visualizations
   alumnos:
   - nombre: Maximo Antonini
     mail: mantonini@fi.uba.ar
@@ -74,7 +67,7 @@ proyectos:
   titulo: 'trust-sources: detección de fuentes periodísticas con LLMs'
   descripcion: Proyecto del seminario, sobre trust-monitor.
   tags:
-  - python
+  - trust
   alumnos:
   - nombre: Mateo Boerr
     mail: mboerr@fi.uba.ar
@@ -86,7 +79,7 @@ proyectos:
   titulo: IngenIA · Asistente Académico FIUBA
   descripcion: Proyecto academico chatbot consultas administrativas
   tags:
-  - html
+  - fiuba
   alumnos:
   - nombre: María del Pilar Raiola
     mail: mraiola@fi.uba.ar
@@ -102,7 +95,7 @@ proyectos:
   descripcion: Asistente local para estudiar con apuntes propios. Indexa materiales por materia, recupera fragmentos
     relevantes y responde preguntas con fuentes visibles.
   tags:
-  - python
+  - fiuba
   alumnos:
   - nombre: Juan Ignacio Baserga
     mail: jbaserga@fi.uba.ar
@@ -112,7 +105,7 @@ proyectos:
   descripcion: Herramienta web para que estudiantes de la Facultad de Ingeniería (UBA) encuentren compañeros con
     quienes intercambiar comisiones en una misma materia.
   tags:
-  - python
+  - fiuba
   alumnos:
   - nombre: Martina Caffoz
     mail: mcaffoz@fi.uba.ar
@@ -120,8 +113,7 @@ proyectos:
 - repo: https://github.com/fadb98-netizen/nexo-ia
   titulo: Nexo IA
   descripcion: Asistente de analisis comercial con IA (Next.js + FastAPI + OpenAI) - trabajo final de Ingenieria
-  tags:
-  - python
+  tags: []
   alumnos:
   - nombre: Facundo de Bonis
     mail: fdebonis@fi.uba.ar

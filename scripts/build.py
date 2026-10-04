@@ -101,6 +101,17 @@ def titulo_desde_repo(repo_url):
     return " ".join(partes)
 
 
+def campo_manual(previo, clave):
+    """Devuelve (valor, falta). falta=True solo si la clave no existe en el YAML.
+
+    Si la clave existe (aunque esté vacía) es edición manual y no se pisa;
+    borrar la línea del YAML para que el script vuelva a sembrarla.
+    """
+    if previo and clave in previo:
+        return previo[clave], False
+    return None, True
+
+
 def esc(valor):
     """Escapa el contenido de una celda de tabla markdown."""
     texto = str(valor or "").strip()
@@ -305,25 +316,33 @@ def mezclar(doc_actual, fresh, args):
             for k, v in (previo or {}).items()
             if k not in {"repo", "titulo", "descripcion", "tags", "alumnos"}
         }
-        entry = {"repo": fp["repo"]}
 
-        falta_titulo = not str((previo or {}).get("titulo") or "").strip()
-        falta_desc = not str((previo or {}).get("descripcion") or "").strip()
-        falta_tags = not (previo or {}).get("tags")
+        # Dueño de cada campo: si la clave existe en el YAML (aunque esté vacía)
+        # es edición manual y no se pisa. Borrar la línea para que el script
+        # vuelva a sembrarla desde la API de GitHub.
+        titulo, falta_titulo = campo_manual(previo, "titulo")
+        descripcion, falta_desc = campo_manual(previo, "descripcion")
+        tags, falta_tags = campo_manual(previo, "tags")
 
         seed = {}
         if (falta_titulo or falta_desc or falta_tags) and not args.no_github:
             seed = github_seed(fp["repo"]) or {}
 
-        entry["titulo"] = (
-            (previo or {}).get("titulo")
-            or seed.get("titulo")
-            or titulo_desde_repo(fp["repo"])
-        )
-        entry["descripcion"] = (previo or {}).get("descripcion") or seed.get("descripcion") or ""
-        entry["tags"] = (previo or {}).get("tags") or seed.get("tags") or []
-        entry["alumnos"] = fp["alumnos"]
-        entry.update(extras)
+        if falta_titulo:
+            titulo = seed.get("titulo") or titulo_desde_repo(fp["repo"])
+        if falta_desc:
+            descripcion = seed.get("descripcion") or ""
+        if falta_tags:
+            tags = seed.get("tags") or []
+
+        entry = {
+            "repo": fp["repo"],
+            "titulo": titulo,
+            "descripcion": descripcion,
+            "tags": tags,
+            "alumnos": fp["alumnos"],
+            **extras,
+        }
         proyectos.append(entry)
 
         nombres_previos = {norm(a.get("nombre")) for a in (previo or {}).get("alumnos", [])}
@@ -363,7 +382,8 @@ def escribir_yaml(doc):
         "# Editar a mano: titulo, descripcion, tags y notas de cada proyecto.\n"
         "# Regenerar el README con: uv run scripts/build.py readme\n"
         "# Reglas de 'dataset': alumnos se regenera desde los excels;\n"
-        "#                      titulo/descripcion/tags solo se completan si están vacíos.\n"
+        "#   titulo/descripcion/tags son de edición manual y nunca se pisan\n"
+        "#   (borrar la línea para que el script los vuelva a sembrar desde GitHub).\n"
         "# mostrar_pendientes: false oculta la sección 'Sin entrega registrada' del README.\n"
     )
     texto = encabezado + yaml.safe_dump(doc, sort_keys=False, allow_unicode=True, width=110)
