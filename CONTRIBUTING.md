@@ -128,6 +128,78 @@ EOF
 - Una vez aprobado, se hace merge y tu proyecto queda visible en la tabla.
 - Si tu fork quedó desactualizado para una futura edición, sincronizalo antes: botón **Sync fork** en GitHub, o `git fetch upstream && git rebase upstream/main`.
 
+## Sumarte a un proyecto que ya existe
+
+Otra forma de aportar es **continuar un trabajo anterior** en vez de registrar uno nuevo. Hay dos casos, y se modelan distinto:
+
+### Caso A · Trabajás sobre el repo original del proyecto
+
+El proyecto sigue siendo el mismo: lo que cambia es el equipo. **No** se crea una fila nueva — se agrega tu entrada a la lista `alumnos` de esa fila (hacelo cuando tu aporte esté integrado en el repo original).
+
+El aporte en sí se hace en el **repo del proyecto** (forkeándolo si hace falta, con tus propios PRs hacia él); la edición acá es solo el alta en la fila:
+
+```yaml
+- repo: https://github.com/<usuario>/<repo-del-proyecto>
+  titulo: ...
+  alumnos:
+  - nombre: Integrante original
+    mail: original@fi.uba.ar
+    padron: 100000
+  - nombre: Vos            # ← agregás tu entrada acá, sin tocar el resto
+    mail: vos@fi.uba.ar
+    padron: 200000
+```
+
+En la descripción del PR aclará qué aportaste (continuación, fix, nueva feature).
+
+### Caso B · Arrancás un fork o repo nuevo con dirección propia
+
+Si el trabajo diverge (nueva versión, otro enfoque, unificación de varios trabajos), es **otro entregable: fila nueva**. Para que la genealogía no se pierda, el registro lleva un campo `origen` con la URL del repo del que deriva:
+
+```yaml
+- repo: https://github.com/<tu-usuario>/<repo-nuevo>
+  titulo: Mi Proyecto — continuación de X
+  cuatrimestre: 2026 2C
+  descripcion: ...
+  origen: https://github.com/<usuario>/<repo-original>
+  tags:
+  - tag-tematico
+  alumnos:
+  - nombre: Vos
+    mail: vos@fi.uba.ar
+    padron: 200000
+```
+
+En la tabla, la fila nueva se muestra con un `↳ continúa de <repo-original>` debajo del link al repositorio.
+
+### Regla rápida
+
+- **Mismo repo** → misma fila: sumás tu entrada en `alumnos`.
+- **Repo nuevo / fork** → fila nueva, con `origen` apuntando al repo del que nace.
+
+### Prompt para tu agente (caso A)
+
+```text
+Quiero sumarme como contributor a un proyecto ya listado en timmd-9216/timmd-entregables.
+
+- Proyecto (título o repo, según aparece en la tabla): ...
+- Mis datos: Nombre Apellido — mail@fi.uba.ar — padrón
+- Qué aporté (1 línea): ...
+
+Hacé lo siguiente:
+1. Forkeá y cloná timmd-9216/timmd-entregables a mi cuenta si no lo tengo.
+2. Creá una branch nueva: sumo-contributor-<titulo-corto>.
+3. En data/entregables.yaml, buscá la fila de ese proyecto y agregá mi entrada a
+   la lista `alumnos`, respetando el formato (nombre, mail, padron). No toques
+   ningún otro registro ni campo.
+4. Corré `uv run scripts/build.py readme` para regenerar el README.
+5. Mostrame el diff: solo debe verse mi entrada en esa fila y la fila nueva del
+   README conmigo incluido.
+6. Commiteá con "Sumo contributor a <proyecto>: <Nombre>" y hacé push.
+7. Abrí un pull request hacia timmd-9216/timmd-entregables (base main) con ese
+   título y la descripción con lo que aporté.
+```
+
 ## Atajo: prompt para tu agente de código
 
 Copiá esto en tu agente (completá los `...`):

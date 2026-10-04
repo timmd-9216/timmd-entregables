@@ -22,7 +22,7 @@ Los entregables de los próximos cuatrimestres se suman a esta tabla mediante un
 
 ## Sumá tu proyecto
 
-¿Aprobaste el taller? Tu proyecto puede quedar en esta tabla para que los próximos cuatrimestres lo retomen, lo unifiquen con otros o construyan sobre él.
+¿Aprobaste el taller? Podés sumar tu proyecto a esta tabla, o sumarte como contributor a uno ya listado.
 
 → [CONTRIBUTING.md](CONTRIBUTING.md) explica cómo sumarlo con un pull request: pasos manuales y un prompt listo para hacerlo con tu agente de código.
 

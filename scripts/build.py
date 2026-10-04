@@ -456,6 +456,10 @@ def render_readme(doc):
         repo = str(p.get("repo") or "").strip()
         etiqueta_repo = repo.replace("https://github.com/", "") if repo else ""
         celda_repo = f"[{etiqueta_repo}]({repo})" if repo else "—"
+        origen = str(p.get("origen") or "").strip()
+        if origen and repo:
+            etiqueta_origen = origen.replace("https://github.com/", "")
+            celda_repo += f"<br>↳ continúa de [{etiqueta_origen}]({origen})"
 
         alumnos = p.get("alumnos") or []
         celda_alumnos = "<br>".join(str(a.get("nombre") or "—") for a in alumnos)
@@ -484,7 +488,7 @@ def render_readme(doc):
         "",
         "## Sumá tu proyecto",
         "",
-        "¿Aprobaste el taller? Tu proyecto puede quedar en esta tabla para que los próximos cuatrimestres lo retomen, lo unifiquen con otros o construyan sobre él.",
+        "¿Aprobaste el taller? Podés sumar tu proyecto a esta tabla, o sumarte como contributor a uno ya listado.",
         "",
         "→ [CONTRIBUTING.md](CONTRIBUTING.md) explica cómo sumarlo con un pull request: pasos manuales y un prompt listo para hacerlo con tu agente de código.",
     ]
