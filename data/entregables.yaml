@@ -14,7 +14,9 @@ proyectos:
   descripcion: StreamAI es una aplicación web desarrollada con el objetivo de analizar tendencias de contenido audiovisual
     en distintas plataformas de streaming y brindar recomendaciones personalizadas de películas y series mediante
     técnicas de análisis de datos y procesamiento de texto.
-  tags: []
+  tags: 
+  - visualizations
+  - ai agent
   alumnos:
   - nombre: Serena Grünbaum
     mail: sgrunbaum@fi.uba.ar
@@ -45,7 +47,8 @@ proyectos:
   titulo: Modelo de predicción de tiendas online
   cuatrimestre: 2026 1C
   descripcion: Material útil para el proyecto del modelo de predicción de compras aplicado a las e-commerce
-  tags: []
+  tags: 
+  - machine-learning
   alumnos:
   - nombre: Magdalena Mormandi
     mail: mmormandi@fi.uba.ar
@@ -122,7 +125,8 @@ proyectos:
   titulo: Nexo IA
   cuatrimestre: 2026 1C
   descripcion: Asistente de analisis comercial con IA (Next.js + FastAPI + OpenAI) - trabajo final de Ingenieria
-  tags: []
+  tags:
+  - machine-learning
   alumnos:
   - nombre: Facundo de Bonis
     mail: fdebonis@fi.uba.ar
