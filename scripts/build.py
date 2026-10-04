@@ -341,11 +341,17 @@ def mezclar(doc_actual, fresh, args):
             print(f"  [aviso] {len(huerfanos)} proyecto(s) fuera del excel, conservado(s): {nombres}")
             proyectos.extend(huerfanos)
 
+    extras = {
+        k: v
+        for k, v in (doc_actual or {}).items()
+        if k not in {"materia", "cuatrimestre", "proyectos", "pendientes"}
+    }
     doc = {
         "materia": (doc_actual or {}).get("materia") or "TIMMD",
         "cuatrimestre": (doc_actual or {}).get("cuatrimestre") or "2026 1C",
         "proyectos": proyectos,
         "pendientes": [],  # se completa en cmd_dataset con los del cruce de excels
+        **extras,
     }
     return doc, alumnos_cambiados, huerfanos
 
@@ -358,6 +364,7 @@ def escribir_yaml(doc):
         "# Regenerar el README con: uv run scripts/build.py readme\n"
         "# Reglas de 'dataset': alumnos se regenera desde los excels;\n"
         "#                      titulo/descripcion/tags solo se completan si están vacíos.\n"
+        "# mostrar_pendientes: false oculta la sección 'Sin entrega registrada' del README.\n"
     )
     texto = encabezado + yaml.safe_dump(doc, sort_keys=False, allow_unicode=True, width=110)
     YAML_PATH.write_text(texto, encoding="utf-8")
@@ -447,7 +454,7 @@ def render_readme(doc):
             )
         )
 
-    if pendientes:
+    if pendientes and doc.get("mostrar_pendientes", True):
         lineas += [
             "",
             "## Sin entrega registrada",

@@ -16,21 +16,6 @@ Listado de proyectos de la materia **TIMMD** · 2026 1C.
 | **Cambio de Curso — FIUBA** | Herramienta web para que estudiantes de la Facultad de Ingeniería (UBA) encuentren compañeros con quienes intercambiar comisiones en una misma materia. | Martina Caffoz | [mcaffoz@fi.uba.ar](mailto:mcaffoz@fi.uba.ar) | [martinacaffoz/cambio-de-curso-fiuba-v2](https://github.com/martinacaffoz/cambio-de-curso-fiuba-v2) | `python` |
 | **Nexo IA** | Asistente de analisis comercial con IA (Next.js + FastAPI + OpenAI) - trabajo final de Ingenieria | Facundo de Bonis | [fdebonis@fi.uba.ar](mailto:fdebonis@fi.uba.ar) | [fadb98-netizen/nexo-ia](https://github.com/fadb98-netizen/nexo-ia) | `python` |
 
-## Sin entrega registrada
-
-Completaron el formulario pero no figuran con repositorio en la planilla.
-
-| Alumno | Mail | Padrón |
-|:-------|:-----|-------:|
-| Cleman Azpiroz | [cazpiroz@fi.uba.ar](mailto:cazpiroz@fi.uba.ar) | 106917 |
-| Fernanda Rojo | [frojo@fi.uba.ar](mailto:frojo@fi.uba.ar) | 107161 |
-| Francisco Rimoldi | [frimoldi@fi.uba.ar](mailto:frimoldi@fi.uba.ar) | 107096 |
-| Gonzalo Masedo | [gmasedo@fi.uba.ar](mailto:gmasedo@fi.uba.ar) | 99472 |
-| Martina Wajnsztok | [mwajnsztok@fi.uba.ar](mailto:mwajnsztok@fi.uba.ar) | 107630 |
-| Nicolas Testa | [ntesta@fi.uba.ar](mailto:ntesta@fi.uba.ar) | 101711 |
-| Tobias Nacif | [tnacif@fi.uba.ar](mailto:tnacif@fi.uba.ar) | 106467 |
-| Tomás Petrelli | [tpetrelli@fi.uba.ar](mailto:tpetrelli@fi.uba.ar) | 83102 |
-
 ---
 
 _README generado automáticamente desde [`data/entregables.yaml`](data/entregables.yaml) — no editar a mano. Correr `uv run scripts/build.py readme`._

@@ -3,6 +3,7 @@
 # Regenerar el README con: uv run scripts/build.py readme
 # Reglas de 'dataset': alumnos se regenera desde los excels;
 #                      titulo/descripcion/tags solo se completan si están vacíos.
+# mostrar_pendientes: false oculta la sección 'Sin entrega registrada' del README.
 materia: TIMMD
 cuatrimestre: 2026 1C
 proyectos:
@@ -150,3 +151,4 @@ pendientes:
 - nombre: Tomás Petrelli
   mail: tpetrelli@fi.uba.ar
   padron: 83102
+mostrar_pendientes: false
