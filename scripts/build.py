@@ -482,6 +482,15 @@ def render_readme(doc):
 
     lineas += [
         "",
+        "## Sumá tu proyecto",
+        "",
+        "¿Aprobaste el taller? Tu proyecto puede quedar en esta tabla para que los próximos cuatrimestres lo retomen, lo unifiquen con otros o construyan sobre él.",
+        "",
+        "→ [CONTRIBUTING.md](CONTRIBUTING.md) explica cómo sumarlo con un pull request: pasos manuales y un prompt listo para hacerlo con tu agente de código.",
+    ]
+
+    lineas += [
+        "",
         "---",
         "",
         "_README generado automáticamente desde "

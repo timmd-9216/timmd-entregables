@@ -20,6 +20,12 @@ Los entregables de los próximos cuatrimestres se suman a esta tabla mediante un
 | **Cambio de Curso — FIUBA** | 2026 1C | Herramienta web para que estudiantes de la Facultad de Ingeniería (UBA) encuentren compañeros con quienes intercambiar comisiones en una misma materia. | Martina Caffoz | [mcaffoz@fi.uba.ar](mailto:mcaffoz@fi.uba.ar) | [martinacaffoz/cambio-de-curso-fiuba-v2](https://github.com/martinacaffoz/cambio-de-curso-fiuba-v2) | `fiuba` |
 | **Nexo IA** | 2026 1C | Asistente de analisis comercial con IA (Next.js + FastAPI + OpenAI) - trabajo final de Ingenieria | Facundo de Bonis | [fdebonis@fi.uba.ar](mailto:fdebonis@fi.uba.ar) | [fadb98-netizen/nexo-ia](https://github.com/fadb98-netizen/nexo-ia) | `machine-learning` |
 
+## Sumá tu proyecto
+
+¿Aprobaste el taller? Tu proyecto puede quedar en esta tabla para que los próximos cuatrimestres lo retomen, lo unifiquen con otros o construyan sobre él.
+
+→ [CONTRIBUTING.md](CONTRIBUTING.md) explica cómo sumarlo con un pull request: pasos manuales y un prompt listo para hacerlo con tu agente de código.
+
 ---
 
 _README generado automáticamente desde [`data/entregables.yaml`](data/entregables.yaml) — no editar a mano. Correr `uv run scripts/build.py readme`._
