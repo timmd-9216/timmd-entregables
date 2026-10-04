@@ -14,9 +14,10 @@ proyectos:
   descripcion: StreamAI es una aplicación web desarrollada con el objetivo de analizar tendencias de contenido audiovisual
     en distintas plataformas de streaming y brindar recomendaciones personalizadas de películas y series mediante
     técnicas de análisis de datos y procesamiento de texto.
-  tags: 
+  tags:
   - visualizations
   - ai agent
+  - n8n
   alumnos:
   - nombre: Serena Grünbaum
     mail: sgrunbaum@fi.uba.ar
