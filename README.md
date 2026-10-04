@@ -1,6 +1,10 @@
 # Entregables — TIMMD
 
-Listado de proyectos de la materia **TIMMD** · 2026 1C.
+Repositorio con el listado de los proyectos entregados por los alumnos de la materia **TIMMD** en cada cuatrimestre.
+
+La idea es que los trabajos no queden aislados en repos individuales: este listado sirve para **seguir proyectos anteriores, retomarlos y construir sobre ellos, unificar esfuerzos entre grupos y compartir lo aprendido** entre cuatrimestres.
+
+Los entregables de los próximos cuatrimestres se suman a esta tabla mediante un **pull request** a este repositorio.
 
 **9 proyectos** · 18 integrantes
 

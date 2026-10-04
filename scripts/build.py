@@ -374,6 +374,7 @@ def mezclar(doc_actual, fresh, args):
     doc = {
         "materia": (doc_actual or {}).get("materia") or "TIMMD",
         "cuatrimestre": default_cuatrimestre,
+        "intro": (doc_actual or {}).get("intro") or "",
         "proyectos": proyectos,
         **extras,
     }
@@ -384,7 +385,7 @@ def escribir_yaml(doc):
     YAML_PATH.parent.mkdir(parents=True, exist_ok=True)
     encabezado = (
         "# Dataset de entregables — fuente de verdad del README.\n"
-        "# Editar a mano: titulo, descripcion, tags, cuatrimestre y notas de cada proyecto.\n"
+        "# Editar a mano: intro, titulo, descripcion, tags, cuatrimestre y notas.\n"
         "# Regenerar el README con: uv run scripts/build.py readme\n"
         "# Reglas de 'dataset': alumnos se regenera desde los excels;\n"
         "#   titulo/descripcion/tags son de edición manual y nunca se pisan\n"
@@ -436,12 +437,13 @@ def render_readme(doc):
 
     lineas = [f"# Entregables — {materia}", ""]
 
-    intro = "Listado de proyectos de la materia"
-    if materia:
-        intro += f" **{materia}**"
-    if cuatrimestre:
-        intro += f" · {cuatrimestre}"
-    lineas += [intro + ".", ""]
+    intro = str(doc.get("intro") or "").strip()
+    if not intro:
+        intro = f"Listado de proyectos de la materia **{materia}**"
+        if cuatrimestre:
+            intro += f" · {cuatrimestre}"
+        intro += "."
+    lineas += [intro, ""]
 
     total_alumnos = sum(len(p.get("alumnos") or []) for p in proyectos)
     lineas += [f"**{len(proyectos)} proyectos** · {total_alumnos} integrantes", ""]

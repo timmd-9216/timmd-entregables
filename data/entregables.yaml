@@ -1,5 +1,5 @@
 # Dataset de entregables — fuente de verdad del README.
-# Editar a mano: titulo, descripcion, tags, cuatrimestre y notas de cada proyecto.
+# Editar a mano: intro, titulo, descripcion, tags, cuatrimestre y notas.
 # Regenerar el README con: uv run scripts/build.py readme
 # Reglas de 'dataset': alumnos se regenera desde los excels;
 #   titulo/descripcion/tags son de edición manual y nunca se pisan
@@ -7,6 +7,17 @@
 # cuatrimestre: en proyectos nuevos se siembra del default (nivel superior).
 materia: TIMMD
 cuatrimestre: 2026 1C
+intro: 'Repositorio con el listado de los proyectos entregados por los alumnos de la materia **TIMMD** en cada cuatrimestre.
+
+
+  La idea es que los trabajos no queden aislados en repos individuales: este listado sirve para **seguir proyectos
+  anteriores, retomarlos y construir sobre ellos, unificar esfuerzos entre grupos y compartir lo aprendido** entre
+  cuatrimestres.
+
+
+  Los entregables de los próximos cuatrimestres se suman a esta tabla mediante un **pull request** a este repositorio.
+
+  '
 proyectos:
 - repo: https://github.com/seregrun-ops/tp-con-sorpreas
   titulo: 'StreamAI: Recomendador de Contenido de Streaming'
@@ -48,7 +59,7 @@ proyectos:
   titulo: Modelo de predicción de tiendas online
   cuatrimestre: 2026 1C
   descripcion: Material útil para el proyecto del modelo de predicción de compras aplicado a las e-commerce
-  tags: 
+  tags:
   - machine-learning
   alumnos:
   - nombre: Magdalena Mormandi
