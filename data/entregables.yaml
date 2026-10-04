@@ -1,0 +1,152 @@
+# Dataset de entregables — fuente de verdad del README.
+# Editar a mano: titulo, descripcion, tags y notas de cada proyecto.
+# Regenerar el README con: uv run scripts/build.py readme
+# Reglas de 'dataset': alumnos se regenera desde los excels;
+#                      titulo/descripcion/tags solo se completan si están vacíos.
+materia: TIMMD
+cuatrimestre: 2026 1C
+proyectos:
+- repo: https://github.com/seregrun-ops/tp-con-sorpreas
+  titulo: 'StreamAI: Recomendador de Contenido de Streaming'
+  descripcion: StreamAI es una aplicación web desarrollada con el objetivo de analizar tendencias de contenido audiovisual
+    en distintas plataformas de streaming y brindar recomendaciones personalizadas de películas y series mediante
+    técnicas de análisis de datos y procesamiento de texto.
+  tags:
+  - jupyter notebook
+  alumnos:
+  - nombre: Serena Grünbaum
+    mail: sgrunbaum@fi.uba.ar
+    padron: 107688
+  - nombre: Luis Maffei
+    mail: lmaffei@fi.uba.ar
+    padron: 106294
+  - nombre: Rocio Alva Dourado
+    mail: ralva@fi.uba.ar
+    padron: 107556
+- repo: https://github.com/irecalde-ctrl/world-cup-storyteller-2018
+  titulo: ⚽ World Cup Storyteller 2018
+  descripcion: Interactive data storytelling of the 2018 World Cup knockout stage through Twitter.
+  tags:
+  - data-storytelling
+  - data-visualization
+  - nlp
+  - python
+  - streamlit
+  - twitter-analysis
+  - world-cup
+  alumnos:
+  - nombre: Imanol Recalde
+    mail: irecalde@fi.uba.ar
+    padron: 110579
+  - nombre: Manuel Lopez Muñoz
+    mail: mmlopez@fi.uba.ar
+    padron: 110865
+  - nombre: Mateo Luca Russo
+    mail: mlrusso@fi.uba.ar
+    padron: 110952
+- repo: https://github.com/mmormandi-beep/Modelo-de-predicci-n-tiendas-online
+  titulo: Modelo de predicción de tiendas online
+  descripcion: Material útil para el proyecto del modelo de predicción de compras aplicado a las e-commerce
+  tags:
+  - jupyter notebook
+  alumnos:
+  - nombre: Magdalena Mormandi
+    mail: mmormandi@fi.uba.ar
+    padron: 110718
+  - nombre: Manuela Dourisboure
+    mail: mdourisboure@fi.uba.ar
+    padron: 110861
+- repo: https://github.com/mantonini-fiuba/TIMMD---Mas-alla-del-resultado
+  titulo: Más allá del resultado
+  descripcion: 🎯 Análisis de partidos de fútbol con datos StatsBomb — mapas emocionales, estilos de juego, modelos
+    xG y simulaciones contrafácticas. FIUBA · TIMMD · 2026.
+  tags:
+  - jupyter notebook
+  alumnos:
+  - nombre: Maximo Antonini
+    mail: mantonini@fi.uba.ar
+    padron: 110516
+  - nombre: Joaquin Azpiazu
+    mail: null
+    padron: null
+- repo: https://github.com/mateoboerr/seminario_lunes
+  titulo: 'trust-sources: detección de fuentes periodísticas con LLMs'
+  descripcion: Proyecto del seminario, sobre trust-monitor.
+  tags:
+  - python
+  alumnos:
+  - nombre: Mateo Boerr
+    mail: mboerr@fi.uba.ar
+    padron: 108740
+  - nombre: Leandro Alvarez
+    mail: lealvarez@fi.uba.ar
+    padron: 101087
+- repo: https://github.com/berenice0107/ingenia-chatbot
+  titulo: IngenIA · Asistente Académico FIUBA
+  descripcion: Proyecto academico chatbot consultas administrativas
+  tags:
+  - html
+  alumnos:
+  - nombre: María del Pilar Raiola
+    mail: mraiola@fi.uba.ar
+    padron: 109191
+  - nombre: Candela Berenice Bus Saldaña
+    mail: cbus@fi.uba.ar
+    padron: 108353
+  - nombre: Delfina Ana Maria Ansaldo
+    mail: dansaldo@fi.uba.ar
+    padron: 112125
+- repo: https://github.com/JuaniBaserga/fiuba-local-assistant
+  titulo: FIUBA Assistant
+  descripcion: Asistente local para estudiar con apuntes propios. Indexa materiales por materia, recupera fragmentos
+    relevantes y responde preguntas con fuentes visibles.
+  tags:
+  - python
+  alumnos:
+  - nombre: Juan Ignacio Baserga
+    mail: jbaserga@fi.uba.ar
+    padron: 103931
+- repo: https://github.com/martinacaffoz/cambio-de-curso-fiuba-v2
+  titulo: Cambio de Curso — FIUBA
+  descripcion: Herramienta web para que estudiantes de la Facultad de Ingeniería (UBA) encuentren compañeros con
+    quienes intercambiar comisiones en una misma materia.
+  tags:
+  - python
+  alumnos:
+  - nombre: Martina Caffoz
+    mail: mcaffoz@fi.uba.ar
+    padron: 112786
+- repo: https://github.com/fadb98-netizen/nexo-ia
+  titulo: Nexo IA
+  descripcion: Asistente de analisis comercial con IA (Next.js + FastAPI + OpenAI) - trabajo final de Ingenieria
+  tags:
+  - python
+  alumnos:
+  - nombre: Facundo de Bonis
+    mail: fdebonis@fi.uba.ar
+    padron: 105106
+pendientes:
+- nombre: Cleman Azpiroz
+  mail: cazpiroz@fi.uba.ar
+  padron: 106917
+- nombre: Fernanda Rojo
+  mail: frojo@fi.uba.ar
+  padron: 107161
+- nombre: Francisco Rimoldi
+  mail: frimoldi@fi.uba.ar
+  padron: 107096
+- nombre: Gonzalo Masedo
+  mail: gmasedo@fi.uba.ar
+  padron: 99472
+- nombre: Martina Wajnsztok
+  mail: mwajnsztok@fi.uba.ar
+  padron: 107630
+- nombre: Nicolas Testa
+  mail: ntesta@fi.uba.ar
+  padron: 101711
+- nombre: Tobias Nacif
+  mail: tnacif@fi.uba.ar
+  padron: 106467
+- nombre: Tomás Petrelli
+  mail: tpetrelli@fi.uba.ar
+  padron: 83102

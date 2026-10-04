@@ -1,0 +1,10 @@
+[project]
+name = "timmd-entregables"
+version = "0.1.0"
+description = "Dataset y README de los entregables de TIMMD"
+requires-python = ">=3.10"
+dependencies = [
+    "openpyxl>=3.1",
+    "pyyaml>=6.0.1",
+    "requests>=2.31",
+]

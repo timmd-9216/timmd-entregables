@@ -1,0 +1,9 @@
+# Inputs locales: planillas con datos de alumnos (no commitear)
+data/input/
+
+# Entorno y artefactos de Python
+.venv/
+__pycache__/
+*.pyc
+
+.DS_Store
